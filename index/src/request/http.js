@@ -6,7 +6,7 @@ let loadingInstance = null     // 加载全局的loading
 
 const instance = axios.create({    //创建axios实例，在这里可以设置请求的默认配置
     timeout: 6000,
-    baseURL: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8021/startusing',   //根据自己配置的反向代理去设置不同环境的baeUrl
+    baseURL: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3030/api',   //根据自己配置的反向代理去设置不同环境的baeUrl
     headers: {
         token: sessionStorage.getItem('token') || '',
         // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
@@ -49,7 +49,7 @@ instance.interceptors.request.use(config => {
 /** 添加响应拦截器  **/
 instance.interceptors.response.use(response => {
     loadingInstance.close()
-    if (response.data.status === 'ok') {     // 响应结果里的status: ok是我与后台的约定，大家可以根据实际情况去做对应的判断
+    if (response.data.code === 200) {     // 响应结果里的status: ok是我与后台的约定，大家可以根据实际情况去做对应的判断
         return Promise.resolve(response.data)
     } else {
         Message({
