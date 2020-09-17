@@ -34,6 +34,7 @@ export default {
   },
   methods: {
     login() {
+      let _this = this;
       let obj = {
         username: this.loginForm.username,
         password: this.loginForm.password,
@@ -41,21 +42,13 @@ export default {
       login(obj).then((res) => {
         const { message, data } = res;
         if (res.code === 200) {
-          this.$router.replace({ path: "/" });
+          _this.$store.commit("login", _this.loginForm);
+          let path = this.$route.query.redirect;
+          this.$router.replace({
+            path: path === "/" || path === undefined ? "/index" : path,
+          });
         }
       });
-      // this.$axios
-      //   .post('/login', {
-      //     username: this.loginForm.username,
-      //     password: this.loginForm.password
-      //   })
-      //   .then(successResponse => {
-      //     if (successResponse.data.code === 200) {
-      //       this.$router.replace({path: '/'})
-      //     }
-      //   })
-      //   .catch(failResponse => {
-      //   })
     },
   },
 };
