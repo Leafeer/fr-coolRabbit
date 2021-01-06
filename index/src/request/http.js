@@ -6,7 +6,7 @@ let loadingInstance = null     // 加载全局的loading
 
 const instance = axios.create({    //创建axios实例，在这里可以设置请求的默认配置
     timeout: 6000,
-    baseURL: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3030/api',   //根据自己配置的反向代理去设置不同环境的baeUrl
+    baseURL: process.env.NODE_ENV === 'production' ? '' : 'http://101.37.70.95:8080/api',   //根据自己配置的反向代理去设置不同环境的baeUrl
     headers: {
         token: sessionStorage.getItem('token') || '',
         // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'

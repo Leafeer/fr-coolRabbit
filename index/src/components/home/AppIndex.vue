@@ -1,12 +1,18 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <home-label/>
+    <home-label/>
   </div>
 </template>
 
 <script>
+import HomeLabel from './HomeLabel.vue'
 export default {
   name: 'AppIndex',
+  components:{
+    HomeLabel
+  },
   props: {
     msg: String
   }
