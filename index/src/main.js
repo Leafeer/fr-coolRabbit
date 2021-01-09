@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css'
-
+import VueGridLayout from 'vue-grid-layout';
 // 调用接口方法
 
 import { get, post } from './request/http'
@@ -14,6 +14,7 @@ var axios = require('axios')
 Vue.prototype.$axios = axios
 
 Vue.use(ElementUI);
+Vue.use(VueGridLayout);
 Vue.prototype.$get = get
 Vue.prototype.$post = post
 
