@@ -10,10 +10,13 @@ const instance = axios.create({    //创建axios实例，在这里可以设置�
     headers: {
         token: sessionStorage.getItem('token') || '',
         // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+        'Content-Type': 'application/json;charset=utf-8',
+        "Access-Control-Allow-Origin": "*"
+        // 'Authorization': AUTH_TOKEN
     }
 })
 // 文档中的统一设置post请求头。下面会说到post请求的几种'Content-Type'
-instance.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
+// instance.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 
 let httpCode = {        //这里我简单列出一些常见的http状态码信息，可以自己去调整配置
     400: '请求参数错误',

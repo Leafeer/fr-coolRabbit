@@ -10,6 +10,9 @@ import VueGridLayout from 'vue-grid-layout';
 import { get, post } from './request/http'
 var axios = require('axios')
 
+import Tool from './tool/tool.js'
+Vue.use(Tool);
+
 // 全局注册，之后可在其他组件中通过 this.$axios 发送数据
 Vue.prototype.$axios = axios
 
