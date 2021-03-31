@@ -26,17 +26,17 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-router.beforeEach((to, from, next) => {
-  if (to.meta.requireAuth) {
-    if (store.state.user.username) {
-      next()
-    } else {
-      next({
-        path: 'login',
-        query: { redirect: to.fullPath }
-      })
-    }
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.meta.requireAuth) {
+//     if (store.state.user.username) {
+//       next()
+//     } else {
+//       next({
+//         path: 'login',
+//         query: { redirect: to.fullPath }
+//       })
+//     }
+//   } else {
+//     next()
+//   }
+// })

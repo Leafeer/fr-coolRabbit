@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '@/views/Base'
 import AppIndex from '@/components/home/AppIndex.vue'
+import NoteBook from '@/components/home/NoteBook.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -16,6 +17,14 @@ const routes = [
         path: '/index',
         name: AppIndex,
         component:AppIndex,
+        meta: {
+          requireAuth: true
+        }
+      },
+      {
+        path: '/noteBook',
+        name: NoteBook,
+        component:NoteBook,
         meta: {
           requireAuth: true
         }

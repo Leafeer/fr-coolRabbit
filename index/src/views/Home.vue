@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="all">
     <nav-menu></nav-menu>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -15,3 +15,9 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+.all {
+  text-align: center;
+  background-color: #e2e2e2;
+}
+</style>
