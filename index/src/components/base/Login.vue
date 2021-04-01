@@ -69,9 +69,12 @@ export default {
       };
       login(obj).then((res) => {
         const { message, data } = res;
-        console.log(res.code)
         if (res.code === "200") {
           _this.$store.commit("login", _this.loginForm);
+          let str = "Bearer "+ data.token
+          sessionStorage.setItem("token", str)
+          console.log(str,typeof(str))
+
           let path = this.$route.query.redirect;
           this.$router.replace({
             path: path === "/" || path === undefined ? "/index" : path,
