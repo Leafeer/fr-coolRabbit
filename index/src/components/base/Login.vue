@@ -64,12 +64,13 @@ export default {
     login() {
       let _this = this;
       let obj = {
-        email: this.loginForm.email,
-        password: this.loginForm.password,
+        "email": this.loginForm.email,
+        "password": this.loginForm.password,
       };
       login(obj).then((res) => {
         const { message, data } = res;
-        if (res.code === 200) {
+        console.log(res.code)
+        if (res.code === "200") {
           _this.$store.commit("login", _this.loginForm);
           let path = this.$route.query.redirect;
           this.$router.replace({

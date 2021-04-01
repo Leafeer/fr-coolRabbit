@@ -6,12 +6,14 @@ let loadingInstance = null     // 加载全局的loading
 
 const instance = axios.create({    //创建axios实例，在这里可以设置请求的默认配置
     timeout: 6000,
-    baseURL: process.env.NODE_ENV === 'production' ? '' : 'http://101.37.70.95:8080/api',   //根据自己配置的反向代理去设置不同环境的baeUrl
+    baseURL: process.env.NODE_ENV === 'production' ? '' : '/api',   //根据自己配置的反向代理去设置不同环境的baeUrl
     headers: {
         token: sessionStorage.getItem('token') || '',
-        // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+        // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+        // 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8;',
+        Accept:'application/json',
         'Content-Type': 'application/json;charset=utf-8',
-        "Access-Control-Allow-Origin": "*"
+        // "Access-Control-Allow-Origin": "*"
         // 'Authorization': AUTH_TOKEN
     }
 })
@@ -52,7 +54,7 @@ instance.interceptors.request.use(config => {
 /** 添加响应拦截器  **/
 instance.interceptors.response.use(response => {
     loadingInstance.close()
-    if (response.data.code === 200) {     // 响应结果里的status: ok是我与后台的约定，大家可以根据实际情况去做对应的判断
+    if (response.data.code === "200") {     // 响应结果里的status: ok是我与后台的约定，大家可以根据实际情况去做对应的判断
         return Promise.resolve(response.data)
     } else {
         Message({
