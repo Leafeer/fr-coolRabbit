@@ -33,6 +33,9 @@ let httpCode = {        //这里我简单列出一些常见的http状态码信�
 
 /** 添加请求拦截器 **/
 instance.interceptors.request.use(config => {
+    if(sessionStorage.getItem('token')!=null){
+        config.headers.Authorization = sessionStorage.getItem('token')
+    }
     loadingInstance = Loading.service({       // 发起请求时加载全局loading，请求失败或有响应时会关闭
         spinner: 'fa fa-spinner fa-spin fa-3x fa-fw',
         text: '拼命加载中...'
