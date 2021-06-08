@@ -4,11 +4,12 @@ import Home from '../views/Home.vue'
 import Login from '@/views/Base'
 import AppIndex from '@/components/home/AppIndex.vue'
 import NoteBook from '@/components/home/NoteBook.vue'
+import JsonTool from '@/components/home/jsontool/Index.vue'
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: Home,
     redirect:'/index',
@@ -25,6 +26,14 @@ const routes = [
         path: '/noteBook',
         name: NoteBook,
         component:NoteBook,
+        meta: {
+          requireAuth: true
+        }
+      },
+      {
+        path: '/jsonTool',
+        name: JsonTool,
+        component:JsonTool,
         meta: {
           requireAuth: true
         }

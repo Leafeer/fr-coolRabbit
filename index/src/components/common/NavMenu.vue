@@ -24,7 +24,7 @@
         navList: [
           {name: '/index', navItem: '首页'},
           {name: '/noteBook', navItem: '笔记本'},
-          {name: '/library', navItem: '图书馆'},
+          {name: '/jsonTool', navItem: 'json工具'},
           {name: '/admin', navItem: '个人中心'}
         ]
       }
